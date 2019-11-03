@@ -16,7 +16,7 @@ export class ProductService {
 
   private urlEndPoint: string = 'http://localhost:8090/api/service-products/products';
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
-  private title;
+
 
   constructor(private http: HttpClient, private authService: AuthService,private router: Router) { }
 

@@ -1,0 +1,35 @@
+<div class="card border-primary mb-3">
+        <div class="card-header">Ordenes Generadas</div>
+        <div class="card-body text-primary">
+          <h5 class="card-title">Listado de Ordenes</h5>
+        
+          <div *ngIf="orders?.length == 0" class="alert alert-info">
+            No hay registros en la base de datos!
+          </div>
+          <table class="table table-bordered table-striped" *ngIf="orders?.length>0">
+            <thead>
+              <tr>
+                <th>Codigo</th>
+                <th>Product</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Total</th>
+              
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let order of orders">
+                <td>{{ order.id }}</td>
+                <td>{{ order.product.name }}</td>
+                <td>{{ order.product.price}}</td>
+                <td>{{ order.quantity }}</td>
+                <td>{{ order.total }}</td>
+              
+               
+              </tr>
+            </tbody>
+          </table>
+        
+        </div>
+      </div>
+      

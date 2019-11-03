@@ -24,12 +24,12 @@ public class Mapper {
 		return viewModel;
 	}
 
-	public Item convertToOrderViewModelEntity(OrderViewModel viewModel) {
+	/*public Item convertToOrderViewModelEntity(OrderViewModel viewModel) {
 		Product product = this.productClienteRest.getProductById(viewModel.getProductId());
 		Item entity = new Item(product,viewModel.getQuantity());
 
 		return entity;
-	}
+	}*/
 	
 	
 }

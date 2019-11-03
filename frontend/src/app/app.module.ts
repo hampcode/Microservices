@@ -11,6 +11,8 @@ import { ProductsComponent } from './product/products/products.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CreateorderComponent } from './order/createorder/createorder.component';
+import { OrdersComponent } from './order/orders/orders.component';
+
 
 
 @NgModule({
@@ -20,7 +22,8 @@ import { CreateorderComponent } from './order/createorder/createorder.component'
     HeaderComponent,
     ProductsComponent,
     CreateproductComponent,
-    CreateorderComponent
+    CreateorderComponent,
+    OrdersComponent
 
   ],
   imports: [

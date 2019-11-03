@@ -1,0 +1,7 @@
+ROLE_ADMIN
+user: hampcode
+password: 12345
+
+ROLE_USER
+user: usercode
+password: 12345

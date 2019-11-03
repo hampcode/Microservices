@@ -22,6 +22,9 @@ public class Item {
 	@ManyToOne
 	@JoinColumn(name = "product_id")
 	private Product product;
+	
+	@Column(name="total",precision=8, scale=2)
+	private Double total;
 
 	public Item() {
 
@@ -30,6 +33,7 @@ public class Item {
 	public Item(Product product, Integer quantity) {
 		this.product = product;
 		this.quantity = quantity;
+		
 	}
 
 	public Long getId() {
@@ -56,7 +60,14 @@ public class Item {
 		this.quantity = quantity;
 	}
 
+	
+	
+	public void setTotal(Double total) {
+		this.total = total;
+	}
+
 	public Double getTotal() {
-		return product.getPrice() * quantity.doubleValue();
+		//return product.getPrice() * quantity.doubleValue();
+		return total;
 	}
 }

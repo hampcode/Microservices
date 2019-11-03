@@ -30,13 +30,13 @@ public class ItemController {
 	@Autowired
     private Mapper mapper;
 
-	/*@GetMapping
+	@GetMapping
 	public ResponseEntity<List<Item>> getItems() {
 		List<Item> items = itemService.getAll();
 		return new ResponseEntity<List<Item>>(items, HttpStatus.OK);
-	}*/
+	}
 
-	@GetMapping
+	/*@GetMapping
 	public List<OrderViewModel> getItems() {
 		List<Item> items = this.itemService.getAll();
 
@@ -45,7 +45,7 @@ public class ItemController {
 				.collect(Collectors.toList());
 
 		return ordersViewModel;
-	}
+	}*/
 	
 	@HystrixCommand(fallbackMethod="methodAlternative")
 	//@GetMapping("/product/{productId}/quantity/{quantity}")
@@ -53,14 +53,21 @@ public class ItemController {
 	//public ResponseEntity<Item> addProductCart(@PathVariable Long productId, @PathVariable Integer quantity) {
 	public ResponseEntity<Item> addProductCart(@PathVariable Long productId){
 		//Item item = itemService.shoppingCart(productId, quantity);
-		Item item = itemService.shoppingCart(productId, 1);	
+		Item item = itemService.shoppingCart(productId, 1 );	
 		return new ResponseEntity<Item>(item, HttpStatus.OK);
 	}
 
-	@PostMapping
+	/*@PostMapping
 	public ResponseEntity<Item> createItem(@RequestBody OrderViewModel orderViewModel) {
 		
 		Item item = this.mapper.convertToOrderViewModelEntity(orderViewModel);
+		itemService.create(item);
+		return new ResponseEntity<Item>(item, HttpStatus.CREATED);
+	}*/
+	
+	@PostMapping
+	public ResponseEntity<Item> createItem(@RequestBody Item item) {
+		
 		itemService.create(item);
 		return new ResponseEntity<Item>(item, HttpStatus.CREATED);
 	}

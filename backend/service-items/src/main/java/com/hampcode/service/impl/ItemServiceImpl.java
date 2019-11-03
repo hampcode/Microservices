@@ -27,6 +27,8 @@ public class ItemServiceImpl implements ItemService {
 	@Transactional
 	@Override
 	public Item create(Item entity) {
+		Double total= entity.getProduct().getPrice() * entity.getQuantity().doubleValue();
+		entity.setTotal(total);
 		return itemRepository.save(entity);
 	}
 
