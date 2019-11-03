@@ -1,30 +1,20 @@
-package com.hampcode.model.entity;
+package com.hampcode.controller.viewmodel;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
+public class ProductViewModel {
 
-@Entity
-@Table(name = "products")
-public class Product {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name="name", nullable = false,length = 70)
+	@NotNull
 	private String name;
-	
-	@Column(name="description", nullable = false,length = 255)
+
+	@NotNull
 	private String description;
-	
-	@Column(name="price", nullable = false)
+
+	@NotNull
 	private Double price;
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -57,5 +47,4 @@ public class Product {
 		this.price = price;
 	}
 
-	
 }

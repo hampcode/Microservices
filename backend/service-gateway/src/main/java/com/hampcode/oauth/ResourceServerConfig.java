@@ -41,11 +41,28 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
 				"/api/service-users/users")
 		.permitAll()
 		
+		/*.antMatchers(HttpMethod.GET,
+				"/api/service-products/products/{id}",
+				//"/api/service-items/items/product/{id}/quantity/{quantity}",
+				"/api/service-items/items/product/{id}",
+				"/api/service-users/users/{id}")
+		.hasAnyRole("ADMIN","USER")*/
+		
 		.antMatchers(HttpMethod.GET,
 				"/api/service-products/products/{id}",
-				"/api/service-items/items/product/{id}/quantity/{quantity}",
-				"/api/service-users/users/{id}")
-		.hasAnyRole("ADMIN","USER")
+				"/api/service-items/items/product/{id}",
+				"/api/service-items/items")
+		.hasAnyRole("USER")
+		.anyRequest().authenticated()
+		
+		.antMatchers(HttpMethod.POST,"/api/service-items/**")
+		.hasRole("USER")
+		.anyRequest().authenticated()
+		
+		.antMatchers(HttpMethod.GET,"/api/service-items/**")
+		.hasRole("USER")
+		.anyRequest().authenticated()
+		
 		
 		.antMatchers("/api/service-products/**",
 				"/api/service-users/**")

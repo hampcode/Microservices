@@ -31,4 +31,6 @@ Por el momento yo soy el unico autor :D
 ![Products](img/products.png)
 ![Login](img/login.png)
 ![Login Success](img/loginsuccess.png)
+![Catalogo](img/catalogo.png)
+![Comprar](img/comprar.png)
 

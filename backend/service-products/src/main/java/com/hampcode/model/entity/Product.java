@@ -27,6 +27,22 @@ public class Product {
 	
 	@Transient
 	private Integer port;
+	
+	
+	
+
+	public Product() {
+		super();
+	}
+
+	public Product(Long id, String name, String description, Double price) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.price = price;
+		
+	}
 
 	public Long getId() {
 		return id;

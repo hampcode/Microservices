@@ -19,6 +19,7 @@
             <th>Precio</th>
             <th *ngIf="authService.hasRole('ROLE_ADMIN')">Editar</th>
             <th *ngIf="authService.hasRole('ROLE_ADMIN')">Eliminar</th>
+            <th *ngIf="authService.hasRole('ROLE_USER')">Comprar</th>
           </tr>
         </thead>
         <tbody>
@@ -33,6 +34,9 @@
             </td>
             <td *ngIf="authService.hasRole('ROLE_ADMIN')">
               <button type="button" name="eliminar" (click)='delete(product)' class="btn btn-danger btn-sm">eliminar</button>
+            </td>
+            <td *ngIf="authService.hasRole('ROLE_USER')">
+              <button type="button" name="comprar" [routerLink]="['/orders/form', product.id]" class="btn btn-danger btn-sm">comprar</button>
             </td>
           </tr>
         </tbody>

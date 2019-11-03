@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hampcode.controller.viewmodel.ProductViewModel;
 import com.hampcode.exception.ResourceNotFoundException;
+import com.hampcode.mapper.Mapper;
 import com.hampcode.model.entity.Product;
 import com.hampcode.service.ProductService;
 
@@ -31,6 +33,9 @@ public class ProductController {
 
 	@Autowired
 	private ProductService productService;
+
+	@Autowired
+    private Mapper mapper;
 
 	
 
@@ -55,18 +60,21 @@ public class ProductController {
 	}
 
 	@PostMapping
-	public ResponseEntity<Product> createProduct(@RequestBody Product product) {
+	public ResponseEntity<Product> createProduct(@RequestBody ProductViewModel productViewModel) {
+		
+		Product product = this.mapper.convertToProductViewModelEntity(productViewModel);
 		productService.create(product);
 		return new ResponseEntity<Product>(product, HttpStatus.CREATED);
 	}
 	
 	
 	@PutMapping("/{id}")
-    public ResponseEntity<Product> updateProduct(@PathVariable Long id,  @RequestBody Product product) {
+    public ResponseEntity<Product> updateProduct(@PathVariable Long id,  @RequestBody ProductViewModel productViewModel) {
         if (!productService.getOne(id).isPresent()) {
         	new ResourceNotFoundException("Product not found with id " + id);
         }
 
+        Product product = this.mapper.convertToProductViewModelEntity(productViewModel);
         return ResponseEntity.ok(productService.create(product));
     }
 

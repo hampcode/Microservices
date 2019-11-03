@@ -10,7 +10,8 @@ import { CreateproductComponent } from './product/createproduct/createproduct.co
 import { ProductsComponent } from './product/products/products.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { ItemsComponent } from './item/items.component';
+import { CreateorderComponent } from './order/createorder/createorder.component';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ItemsComponent } from './item/items.component';
     HeaderComponent,
     ProductsComponent,
     CreateproductComponent,
-    ItemsComponent
+    CreateorderComponent
+
   ],
   imports: [
     BrowserModule,
